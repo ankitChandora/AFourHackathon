@@ -51,19 +51,21 @@ class GiftsAdapter(
 
             if (gift.coins != null) {
 
+                var coins = gift.coins
                 binding.tvPrice.text = gift.coins.toString()
 
                 if (DataRepository.IS_PREMIUM){
                     binding.tvDiscountedPrice.visibility = View.VISIBLE
                     binding.tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                     binding.tvPrice.background = binding.root.context.getDrawable(R.drawable.bg_strike_text)
-                    binding.tvDiscountedPrice.text = (gift.coins * 0.8).toInt().toString()
+                    coins = (gift.coins * 0.8).toInt()
+                    binding.tvDiscountedPrice.text = coins.toString()
                 }else{
                     binding.tvDiscountedPrice.visibility = View.GONE
                 }
 
                 binding.root.setOnClickListener {
-                    listener.onGiftSelected(gift.coins)
+                    listener.onGiftSelected(coins)
                 }
             }
 
