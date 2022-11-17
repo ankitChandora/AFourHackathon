@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
+
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+
+    android:focusable="true"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -27,6 +32,5 @@
         android:textColor="@color/black"
         android:textSize="10sp"
         tools:text="100" />
-
 
 </LinearLayout>
