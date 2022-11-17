@@ -2,8 +2,11 @@ package com.example.afourhackathon.ui.gift
 
 import android.graphics.Paint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.afourhackathon.R
+import com.example.afourhackathon.data.DataRepository
 import com.example.afourhackathon.data.model.Gift
 import com.example.afourhackathon.databinding.ItemGiftBinding
 import com.example.afourhackathon.util.DataUtil
@@ -47,8 +50,17 @@ class GiftsAdapter(
             }
 
             if (gift.coins != null) {
-                binding.tvPrice.setPaintFlags(binding.tvPrice.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-                binding.tvPrice.text = (gift.coins * 0.8).toInt().toString()
+
+                binding.tvPrice.text = gift.coins.toString()
+
+                if (DataRepository.IS_PREMIUM){
+                    binding.tvDiscountedPrice.visibility = View.VISIBLE
+                    binding.tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                    binding.tvPrice.background = binding.root.context.getDrawable(R.drawable.bg_strike_text)
+                    binding.tvDiscountedPrice.text = (gift.coins * 0.8).toInt().toString()
+                }else{
+                    binding.tvDiscountedPrice.visibility = View.GONE
+                }
 
                 binding.root.setOnClickListener {
                     listener.onGiftSelected(gift.coins)

@@ -1,14 +1,19 @@
 package com.example.afourhackathon.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.afourhackathon.data.DataRepository
 import com.example.afourhackathon.databinding.ActivityHomeBinding
 import com.example.afourhackathon.ui.gift.GiftsFragment
 import com.example.afourhackathon.util.EventObserver
 import com.google.android.material.divider.MaterialDividerItemDecoration
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -47,5 +52,19 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        DataRepository.IS_PREMIUM = !DataRepository.IS_PREMIUM
+
+        if (DataRepository.IS_PREMIUM){
+            Toast.makeText(this, "You're now premium user", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(com.example.afourhackathon.R.menu.app_menu, menu)
+        return true
     }
 }

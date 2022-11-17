@@ -16,6 +16,8 @@ class DataRepository {
 
     companion object{
 
+        var IS_PREMIUM = false
+
         private var instance: DataRepository?  = null
 
         fun getInstance(): DataRepository{
