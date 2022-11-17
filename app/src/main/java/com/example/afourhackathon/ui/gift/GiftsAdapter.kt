@@ -1,12 +1,13 @@
 package com.example.afourhackathon.ui.gift
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.afourhackathon.data.model.Gift
 import com.example.afourhackathon.databinding.ItemGiftBinding
 import com.example.afourhackathon.util.DataUtil
-import java.text.DecimalFormat
+import kotlin.math.floor
 
 /**
  * Created by ChandoraAnkit on 17/11/22
@@ -46,7 +47,8 @@ class GiftsAdapter(
             }
 
             if (gift.coins != null) {
-                binding.tvPrice.text = gift.coins.toString()
+                binding.tvPrice.setPaintFlags(binding.tvPrice.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
+                binding.tvPrice.text = (gift.coins * 0.8).toInt().toString()
 
                 binding.root.setOnClickListener {
                     listener.onGiftSelected(gift.coins)
