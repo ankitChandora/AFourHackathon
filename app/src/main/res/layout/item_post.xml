@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/iv_user_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:id="@+id/ll_name_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+        app:layout_constraintEnd_toStartOf="@id/btn_follow"
+        app:layout_constraintStart_toEndOf="@id/iv_user_profile"
+        app:layout_constraintTop_toTopOf="@id/iv_user_profile">
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            tools:text="Test user" />
+
+        <TextView
+            android:id="@+id/tv_user_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+            tools:text="Follow me on Sharechat" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_round"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="4dp"
+        android:text="@string/txt_follow"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ll_name_container"
+        app:layout_constraintTop_toTopOf="@id/iv_user_profile" />
+
+    <TextView
+        android:id="@+id/tv_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:textColor="#B4232121"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+
+    <ImageView
+        android:id="@+id/iv_post"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@id/tv_caption"
+        tools:src="@tools:sample/avatars" />
+
+
+    <TextView
+        android:id="@+id/tv_views"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_post"
+        tools:text="14k views" />
+
+    <RelativeLayout
+        android:id="@+id/rl_whatsapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/rl_comments"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_views">
+
+        <ImageView
+            android:id="@+id/iv_whatsApp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_whatsapp" />
+
+        <TextView
+            android:id="@+id/tv_shares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_whatsApp"
+            android:layout_alignBottom="@id/iv_whatsApp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/iv_whatsApp"
+            android:gravity="center_vertical"
+            android:textSize="10sp"
+            tools:text="2.8M" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_whatsApp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="10sp"
+            android:text="Share" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/rl_likes"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/rl_whatsapp"
+        app:layout_constraintTop_toBottomOf="@id/tv_views">
+
+        <ImageView
+            android:id="@+id/iv_comments"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_comment" />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_comments"
+            android:layout_alignBottom="@id/iv_comments"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/iv_comments"
+            android:gravity="center_vertical"
+            android:textSize="10sp"
+            tools:text="2.8M" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_comments"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="10sp"
+            android:text="Comments" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@id/rl_gift"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/rl_comments"
+        app:layout_constraintTop_toBottomOf="@id/tv_views">
+
+        <ImageView
+            android:id="@+id/iv_likes"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_like" />
+
+        <TextView
+            android:id="@+id/tv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_likes"
+            android:layout_alignBottom="@id/iv_likes"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/iv_likes"
+            android:gravity="center_vertical"
+            android:textSize="10sp"
+            tools:text="2.8M" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_likes"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="10sp"
+            android:text="Share" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_gift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rl_likes"
+        app:layout_constraintTop_toBottomOf="@id/tv_views">
+
+        <ImageView
+            android:id="@+id/iv_gift"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_gift" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_gift"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="10sp"
+            android:text="Gift" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
