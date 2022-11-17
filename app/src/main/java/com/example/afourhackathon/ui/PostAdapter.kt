@@ -9,6 +9,8 @@ import coil.transform.CircleCropTransformation
 import com.example.afourhackathon.R
 import com.example.afourhackathon.data.model.Post
 import com.example.afourhackathon.databinding.ItemPostBinding
+import com.example.afourhackathon.databinding.LayoutItemPostGiftBinding
+import com.example.afourhackathon.util.DataUtil
 
 /**
  * Created by ChandoraAnkit on 16/11/22
@@ -21,10 +23,6 @@ class PostAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val s = ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PostImageViewHolder(s, clickListener)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -67,6 +65,23 @@ class PostAdapter(
 
             binding.rlGift.setOnClickListener {
                 listener.openGiftScreen()
+            }
+
+            post.gifts?.let { gifts ->
+                binding.llGifts.visibility = View.VISIBLE
+                binding.llGifts.removeAllViews()
+                gifts.forEach { gift ->
+                    val giftView = LayoutItemPostGiftBinding.inflate(LayoutInflater.from(binding.root.context), binding.llGifts, false)
+                    val lottieFile = DataUtil.GIFTS[gift.assetId]
+                    if (lottieFile != null) {
+                        giftView.lavGift.setAnimation(lottieFile)
+                    }
+                    giftView.tvCount.text = gift.count.toString()
+                    binding.llGifts.addView(giftView.llItemGift)
+                }
+
+            } ?: kotlin.run {
+                binding.llGifts.visibility = View.GONE
             }
         }
 

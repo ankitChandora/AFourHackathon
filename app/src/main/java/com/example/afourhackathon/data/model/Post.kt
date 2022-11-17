@@ -15,11 +15,16 @@ data class Post(
     @SerializedName("comments") val comments: String?,
     @SerializedName("likes") val likes: String,
     @SerializedName("shares") val shares: String?,
-    @SerializedName("gift") val gifts: String?
+    @SerializedName("gifts") val gifts: List<PostGift>?
 )
 
 data class UserDetails(
     @SerializedName("profileImg") val profileImg: String?,
     @SerializedName("name") val name: String?,
     @SerializedName("bio") val bio: String?,
+)
+
+data class PostGift(
+    @SerializedName("id") val assetId: String?,
+    @SerializedName("count") val count: Int?
 )

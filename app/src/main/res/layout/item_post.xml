@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:padding="8dp">
 
     <ImageView
@@ -98,21 +97,34 @@
 
     <TextView
         android:id="@+id/tv_views"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:lines="1"
-        android:textSize="10sp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_post"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/ll_gifts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ll_gifts"
         tools:text="14k views" />
+
+    <LinearLayout
+        android:id="@+id/ll_gifts"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_post" />
+
 
     <RelativeLayout
         android:id="@+id/rl_whatsapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toStartOf="@id/rl_comments"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,8 +156,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
             android:gravity="center_horizontal"
-            android:textSize="10sp"
-            android:text="Share" />
+            android:text="Share"
+            android:textSize="10sp" />
 
     </RelativeLayout>
 
@@ -153,7 +165,7 @@
         android:id="@+id/rl_comments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toStartOf="@id/rl_likes"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@id/rl_whatsapp"
@@ -185,8 +197,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
             android:gravity="center_horizontal"
-            android:textSize="10sp"
-            android:text="Comments" />
+            android:text="Comments"
+            android:textSize="10sp" />
 
     </RelativeLayout>
 
@@ -194,7 +206,7 @@
         android:id="@+id/rl_likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toStartOf="@id/rl_gift"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@id/rl_comments"
@@ -226,8 +238,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
             android:gravity="center_horizontal"
-            android:textSize="10sp"
-            android:text="Share" />
+            android:text="Share"
+            android:textSize="10sp" />
 
     </RelativeLayout>
 
@@ -235,7 +247,7 @@
         android:id="@+id/rl_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/rl_likes"
@@ -256,8 +268,8 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
             android:gravity="center_horizontal"
-            android:textSize="10sp"
-            android:text="Gift" />
+            android:text="Gift"
+            android:textSize="10sp" />
 
     </RelativeLayout>
 

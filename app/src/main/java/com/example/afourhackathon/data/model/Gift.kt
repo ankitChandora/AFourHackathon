@@ -14,5 +14,5 @@ data class GiftsResponse(
 
 data class Gift(
     @SerializedName("id") val assetId: String?,
-    @SerializedName("coins") val coins: Int?,
+    @SerializedName("coins") val coins: Int?
 )

@@ -23,7 +23,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setTitle("Sharechat Sample")
         viewModel.fetchPosts()
 
         viewModel.posts.observe(this) {

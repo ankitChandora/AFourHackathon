@@ -41,9 +41,8 @@ class GiftsAdapter(
         fun bind(gift: Gift) {
 
             val lottieFile = DataUtil.GIFTS[gift.assetId]
-
             if (lottieFile != null) {
-                binding.lnvGift.setAnimation(lottieFile)
+                binding.lavGift.setAnimation(lottieFile)
             }
 
             if (gift.coins != null) {
