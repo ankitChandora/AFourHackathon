@@ -238,7 +238,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="1dp"
             android:gravity="center_horizontal"
-            android:text="Share"
+            android:text="Like"
             android:textSize="10sp" />
 
     </RelativeLayout>
