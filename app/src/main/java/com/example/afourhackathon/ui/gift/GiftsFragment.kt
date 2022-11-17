@@ -1,6 +1,5 @@
 package com.example.afourhackathon.ui.gift
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,13 +33,29 @@ class GiftsFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addObservers()
         viewModel.fetchGifts()
 
+        binding.ivAddCoin.setOnClickListener {
+            Toast.makeText(requireContext(), "Not available", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun addObservers() {
         viewModel.gifts.observe(this) {
-            adapter = GiftsAdapter(it, object : GiftsAdapter.OnItemClickListener {})
+            adapter = GiftsAdapter(it, object : GiftsAdapter.OnItemClickListener {
+                override fun onGiftSelected(coins: Int) {
+                    viewModel.updateAvailableCoins(coins)
+                }
+
+            })
 
             binding.rvGifts.layoutManager = GridLayoutManager(requireActivity(), 5)
             binding.rvGifts.adapter = adapter
+        }
+
+        viewModel.availableCoins.observe(this) {
+            binding.tvCoins.text = it.toString()
         }
 
         viewModel.showToast.observe(this, EventObserver {

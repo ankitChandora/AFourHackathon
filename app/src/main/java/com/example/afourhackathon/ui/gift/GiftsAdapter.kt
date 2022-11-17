@@ -1,11 +1,8 @@
 package com.example.afourhackathon.ui.gift
 
-import android.provider.ContactsContract.Data
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RawRes
 import androidx.recyclerview.widget.RecyclerView
-import com.example.afourhackathon.R
 import com.example.afourhackathon.data.model.Gift
 import com.example.afourhackathon.databinding.ItemGiftBinding
 import com.example.afourhackathon.util.DataUtil
@@ -45,19 +42,23 @@ class GiftsAdapter(
 
             val lottieFile = DataUtil.GIFTS[gift.assetId]
 
-            if (lottieFile != null){
+            if (lottieFile != null) {
                 binding.lnvGift.setAnimation(lottieFile)
             }
 
-            if (gift.price != null) {
-                val format = DecimalFormat("0.#")
-                val price = format.format(gift.price)
-                binding.tvPrice.text = price.toString()
+            if (gift.coins != null) {
+                binding.tvPrice.text = gift.coins.toString()
+
+                binding.root.setOnClickListener {
+                    listener.onGiftSelected(gift.coins)
+                }
             }
+
         }
     }
 
     interface OnItemClickListener {
+        fun onGiftSelected(coins: Int)
     }
 
 }

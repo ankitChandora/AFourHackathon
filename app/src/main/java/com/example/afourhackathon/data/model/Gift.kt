@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName
 
 
 data class GiftsResponse(
-    @SerializedName("coins") val coins: Int?,
+    @SerializedName("availableCoins") val availableCoins: Int?,
     @SerializedName("gifts") val gifts: List<Gift> = emptyList(),
 )
 
 data class Gift(
     @SerializedName("id") val assetId: String?,
-    @SerializedName("price") val price: Float?,
+    @SerializedName("coins") val coins: Int?,
 )

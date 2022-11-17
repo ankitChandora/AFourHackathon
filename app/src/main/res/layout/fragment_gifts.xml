@@ -27,14 +27,59 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/ll_add_coin"
+        app:layout_constraintTop_toTopOf="@id/ll_add_coin" />
 
     <View
+        android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="8dp"
         android:background="#BFB6B6"
-        app:layout_constraintTop_toBottomOf="@id/tv_gifts" />
+        app:layout_constraintTop_toBottomOf="@id/ll_add_coin" />
+
+    <LinearLayout
+        android:id="@+id/ll_add_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:background="@drawable/bg_round_coin"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_coin" />
+
+        <TextView
+            android:id="@+id/tv_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="1000" />
+
+        <View
+            android:layout_marginEnd="4dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#BFB6B6" />
+
+        <ImageView
+            android:id="@+id/iv_add_coin"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_add" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_gifts"
@@ -42,6 +87,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/tv_gifts" />
+        app:layout_constraintTop_toBottomOf="@id/ll_add_coin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
