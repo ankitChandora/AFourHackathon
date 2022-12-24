@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
         setTitle("Sharechat Sample")
         viewModel.fetchPosts()
 
+        // Merge from test for testing
         viewModel.posts.observe(this) {
             adapter = PostAdapter(it, object : PostAdapter.OnItemClickListener {
                 override fun openGiftScreen() {
